@@ -30,16 +30,13 @@ int main() {
                 // Check if the value is in the range [-10, 10]
                 if (value < -10 || value > 10) {
                     cout << "Invalid input, " << choiceArray[i] << " is not in range (-10, 10)." << endl;
-                    return 1;  // Exit program with an error code
                 }
             }
             catch (const invalid_argument&) {
                 cout << "Invalid input, " << choiceArray[i] << " is not a number." << endl;
-                return 1;  // Exit program with an error code
             }
             catch (const out_of_range&) {
                 cout << "Invalid input, " << choiceArray[i] << " is out of range." << endl;
-                return 1;  // Exit program with an error code
             }
         }
 
@@ -50,7 +47,7 @@ int main() {
         y2 = stoi(in4);
     }
     else if (choice == 'g') {
-        srand(static_cast<unsigned>(time(0)));
+        srand(time(0));
         // Generate 4 random numbers between -10 and 10
         x1 = rand() % 21 - 10;
         y1 = rand() % 21 - 10;
@@ -59,7 +56,6 @@ int main() {
     }
     else {
         cout << "Invalid choice. Please enter 'e' or 'g'." << endl;
-        return 1;  // Exit program with an error code
     }
 
     cout << "Point 1 = (" << x1 << ", " << y1 << ") Point 2 = (" << x2 << ", " << y2 << ")" << endl;
